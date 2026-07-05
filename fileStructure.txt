@@ -1,0 +1,35 @@
+src/
+│
+├── assets/
+├── components/
+│   ├── cards/
+│   ├── charts/
+│   ├── layout/
+│   ├── navigation/
+│   └── ui/
+│
+├── data/
+│
+├── hooks/
+│
+├── layouts/
+│   └── MainLayout.jsx
+│
+├── pages/
+│   ├── Dashboard.jsx
+│   ├── WhaleWatch.jsx
+│   ├── SocialPayExplorer.jsx
+│   ├── Partnerships.jsx
+│   ├── News.jsx
+│   ├── Settings.jsx
+│   └── NotFound.jsx
+│
+├── services/
+│
+├── styles/
+│
+├── utils/
+│
+├── App.jsx
+├── main.jsx
+└── index.css

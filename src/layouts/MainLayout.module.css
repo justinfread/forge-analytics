@@ -1,0 +1,47 @@
+/*    */
+.appShell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  background: #0f1115;
+  color: #f5f5f5;
+}
+
+.sidebar {
+  padding: 2rem 1.25rem;
+  border-right: 1px solid #252a33;
+  background: #141821;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.brand p {
+  margin: 0.5rem 0 2rem;
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.nav a {
+  color: #d1d5db;
+  text-decoration: none;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.nav a:hover {
+  background: #1f2937;
+  color: white;
+}
+
+.main {
+  padding: 2rem;
+}
