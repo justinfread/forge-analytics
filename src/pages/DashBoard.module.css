@@ -1,8 +1,7 @@
 /* src/pages/Dashboard.module.css */
-.statsGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+
+.marketSection {
+  margin-top: 1.5rem;
 }
 
 .actions {

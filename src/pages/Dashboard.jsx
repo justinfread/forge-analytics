@@ -1,5 +1,6 @@
 import PageHeader from "../components/ui/PageHeader/PageHeader";
-import StatCard from "../components/ui/StatCard/StatCard";
+import StatsGrid from "../features/dashboard/StatsGrid";
+import MarketSnapshot from "../features/dashboard/MarketSnapshot";
 import Button from "../components/ui/Button/Button";
 import Badge from "../components/ui/Badge/Badge";
 import styles from "./Dashboard.module.css";
@@ -12,11 +13,10 @@ function Dashboard() {
         subtitle="Monitor Web3 payment adoption, whale activity, and stablecoin movement."
       />
 
-      <div className={styles.statsGrid}>
-        <StatCard label="Whale Transactions" value="134" change="+12 today" tone="success" />
-        <StatCard label="Stablecoin Volume" value="$246B" change="+4.8%" tone="success" />
-        <StatCard label="Payment Projects" value="18" change="Watching" />
-        <StatCard label="Risk Alerts" value="3" change="Review" tone="warning" />
+      <StatsGrid />
+
+      <div className={styles.marketSection}>
+        <MarketSnapshot />
       </div>
 
       <div className={styles.actions}>
