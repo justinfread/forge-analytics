@@ -1,8 +1,10 @@
+// src/pages/Dashboard.jsx
 import PageHeader from "../components/ui/PageHeader/PageHeader";
-import StatsGrid from "../features/dashboard/StatsGrid";
-import MarketSnapshot from "../features/dashboard/MarketSnapshot";
+import Section from "../components/ui/Section/Section";
 import Button from "../components/ui/Button/Button";
 import Badge from "../components/ui/Badge/Badge";
+import StatsGrid from "../features/dashboard/StatsGrid";
+import MarketSnapshot from "../features/dashboard/MarketSnapshot";
 import styles from "./Dashboard.module.css";
 
 function Dashboard() {
@@ -15,9 +17,13 @@ function Dashboard() {
 
       <StatsGrid />
 
-      <div className={styles.marketSection}>
+      <Section
+        title="Market Snapshot"
+        subtitle="Current prices, 24-hour movement, and trading volume."
+        action={<Badge tone="success">Live Data</Badge>}
+      >
         <MarketSnapshot />
-      </div>
+      </Section>
 
       <div className={styles.actions}>
         <Button>Refresh Data</Button>

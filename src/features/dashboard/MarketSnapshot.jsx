@@ -1,7 +1,8 @@
+// src/features/dashboard/MarketSnapshot.jsx
 import { useEffect, useState } from "react";
 import Card from "../../components/ui/Card/Card";
 import Badge from "../../components/ui/Badge/Badge";
-import { getCryptoPrices } from "../../services/cryptoPriceService";
+import { getCryptoPrices } from "../../Services/market/cryptoPriceService";
 import styles from "./MarketSnapshot.module.css";
 
 function MarketSnapshot() {
@@ -12,10 +13,11 @@ function MarketSnapshot() {
     async function loadPrices() {
       try {
         const data = await getCryptoPrices();
+
         setPrices(data);
         setStatus("success");
       } catch (error) {
-        console.error(error);
+        console.error("Unable to load market prices:", error);
         setStatus("error");
       }
     }
@@ -28,26 +30,49 @@ function MarketSnapshot() {
   }
 
   if (status === "error") {
-    return <Card>Could not load market data.</Card>;
+    return (
+      <Card>
+        <p className={styles.error}>Could not load market data.</p>
+      </Card>
+    );
   }
 
   return (
     <Card>
-      <div className={styles.header}>
-        <h3>Market Snapshot</h3>
-        <Badge tone="success">Live Data</Badge>
-      </div>
-
       <div className={styles.grid}>
-        {Object.entries(prices).map(([coinId, data]) => (
-          <div key={coinId} className={styles.asset}>
-            <p className={styles.name}>{coinId}</p>
-            <h4>${data.usd.toLocaleString()}</h4>
-            <p className={data.usd_24h_change >= 0 ? styles.positive : styles.negative}>
-              {data.usd_24h_change?.toFixed(2)}%
-            </p>
-          </div>
-        ))}
+        {Object.entries(prices).map(([coinId, data]) => {
+          const change = data.usd_24h_change;
+          const hasChange = typeof change === "number";
+          const isPositive = hasChange && change >= 0;
+
+          return (
+            <article key={coinId} className={styles.asset}>
+              <div className={styles.assetHeader}>
+                <p className={styles.name}>{coinId}</p>
+
+                {hasChange && (
+                  <Badge tone={isPositive ? "success" : "danger"}>
+                    {isPositive ? "+" : ""}
+                    {change.toFixed(2)}%
+                  </Badge>
+                )}
+              </div>
+
+              <h4 className={styles.price}>
+                ${data.usd.toLocaleString(undefined, {
+                  maximumFractionDigits: data.usd < 1 ? 4 : 2,
+                })}
+              </h4>
+
+              <p className={styles.volume}>
+                24h volume: $
+                {data.usd_24h_vol?.toLocaleString(undefined, {
+                  maximumFractionDigits: 0,
+                }) ?? "Unavailable"}
+              </p>
+            </article>
+          );
+        })}
       </div>
     </Card>
   );

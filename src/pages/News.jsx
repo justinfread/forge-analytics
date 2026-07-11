@@ -1,10 +1,14 @@
-import styles from "./News.module.css";
+// src/pages/News.jsx
+import PageHeader from "../components/ui/PageHeader/PageHeader";
 
-function News (){
+function News() {
   return (
-    <div className={styles.news}>
-      <h1>hello I'm a heading</h1>
-    </div>
+    <section>
+      <PageHeader
+        title="News"
+        subtitle="Stay updated with the latest developments in the blockchain space."
+      />
+    </section>
   );
 }
 

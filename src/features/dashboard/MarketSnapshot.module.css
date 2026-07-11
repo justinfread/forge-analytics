@@ -1,14 +1,7 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
+/* src/features/dashboard/MarketSnapshot.module.css */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
   gap: 1rem;
 }
 
@@ -19,16 +12,29 @@
   background: var(--surface-light);
 }
 
+.assetHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
 .name {
   color: var(--text-muted);
   text-transform: capitalize;
+}
+
+.price {
   margin-bottom: 0.5rem;
+  font-size: 1.4rem;
 }
 
-.positive {
-  color: var(--success);
+.volume {
+  color: var(--text-muted);
+  font-size: 0.8rem;
 }
 
-.negative {
+.error {
   color: var(--danger);
 }

@@ -13,6 +13,7 @@ function MainLayout() {
 
         <nav className={styles.nav}>
           <NavLink to="/" end>Dashboard</NavLink>
+          <NavLink to="/stablecoins">Stablecoins</NavLink>
           <NavLink to="/whale-watch">Whale Watch</NavLink>
           <NavLink to="/socialpay">SocialPay Explorer</NavLink>
           <NavLink to="/partnerships">Partnerships</NavLink>
