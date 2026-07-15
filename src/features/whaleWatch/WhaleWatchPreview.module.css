@@ -1,0 +1,67 @@
+.blockHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.blockHeader p {
+  color: var(--text-muted);
+}
+
+.blockHeader span {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.transactionList {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction {
+  display: grid;
+  grid-template-columns:
+    minmax(180px, 1.5fr)
+    minmax(130px, 1fr)
+    minmax(120px, 0.8fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.label {
+  margin-bottom: 0.25rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.transactionLink {
+  color: var(--accent);
+  font-family: monospace;
+}
+
+.transactionLink:hover {
+  text-decoration: underline;
+}
+
+.amount {
+  font-weight: 700;
+}
+
+.error {
+  color: var(--danger);
+}
+
+@media (max-width: 700px) {
+  .blockHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .transaction {
+    grid-template-columns: 1fr;
+  }
+}

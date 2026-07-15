@@ -6,6 +6,7 @@ import Badge from "../components/ui/Badge/Badge";
 import StatsGrid from "../features/dashboard/StatsGrid";
 import MarketSnapshot from "../features/dashboard/MarketSnapshot";
 import StablecoinMonitor from "../features/stablecoins/StablecoinMonitor";
+import WhaleWatchPreview from "../features/whaleWatch/WhaleWatchPreview";
 import styles from "./Dashboard.module.css";
 
 function Dashboard() {
@@ -32,6 +33,18 @@ function Dashboard() {
         action={<Button variant="secondary">View Stablecoins</Button>}
       >
         <StablecoinMonitor />
+      </Section>
+
+      <Section
+        title="Whale Watch"
+        subtitle="Largest Bitcoin transactions found in the latest confirmed block."
+        action={
+          <Button variant="secondary">
+            View Whale Watch
+          </Button>
+        }
+      >
+        <WhaleWatchPreview />
       </Section>
 
       <div className={styles.actions}>

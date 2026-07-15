@@ -49,3 +49,14 @@ export function formatCompactNumber(value) {
     maximumFractionDigits: 2,
   }).format(value);
 }
+
+// Converts a value in satoshis to bitcoin
+export function formatBitcoin(value) {
+  if (typeof value !== "number") {
+    return "Unavailable";
+  }
+
+  return `${new Intl.NumberFormat("en-US", {
+    maximumFractionDigits: 2,
+  }).format(value)} BTC`;
+}
