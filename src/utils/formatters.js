@@ -60,3 +60,33 @@ export function formatBitcoin(value) {
     maximumFractionDigits: 2,
   }).format(value)} BTC`;
 }
+
+// Formatters for social pay transactions
+export function formatAssetAmount(value, assetCode) {
+  if (typeof value !== "number") {
+    return "Unavailable";
+  }
+
+  const formattedValue = new Intl.NumberFormat("en-US", {
+    maximumFractionDigits: 7,
+  }).format(value);
+
+  return `${formattedValue} ${assetCode}`;
+}
+
+export function formatDateTime(value) {
+  if (!value) {
+    return "Unavailable";
+  }
+
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return "Unavailable";
+  }
+
+  return new Intl.DateTimeFormat("en-US", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  }).format(date);
+}

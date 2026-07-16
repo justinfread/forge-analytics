@@ -7,6 +7,7 @@ import StatsGrid from "../features/dashboard/StatsGrid";
 import MarketSnapshot from "../features/dashboard/MarketSnapshot";
 import StablecoinMonitor from "../features/stablecoins/StablecoinMonitor";
 import WhaleWatchPreview from "../features/whaleWatch/WhaleWatchPreview";
+import SocialPayPreview from "../features/socialPay/SocialPayPreview";
 import styles from "./Dashboard.module.css";
 
 function Dashboard() {
@@ -45,6 +46,18 @@ function Dashboard() {
         }
       >
         <WhaleWatchPreview />
+      </Section>
+
+      <Section
+        title="SocialPay Explorer"
+        subtitle="Recent payment activity across blockchain-based payment networks."
+        action={
+          <Button variant="secondary">
+            View SocialPay
+          </Button>
+        }
+      >
+        <SocialPayPreview />
       </Section>
 
       <div className={styles.actions}>
